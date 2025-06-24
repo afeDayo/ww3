@@ -2,23 +2,35 @@ import React, { useEffect, useState } from "react";
 import EachCountry from "../components/EachCountry";
 import { useLocation, useParams } from "react-router-dom";
 
-const CountryDetail = ({ detailsByCountry }) => {
+import countriesData from "../data.json";
+
+const CountryDetail = () => {
   const { countryName } = useParams();
 
-  const { state } = useLocation();
-  console.log(useLocation);
+  const [country, setCountry] = useState(null);
 
-  const findCountry =
-    state.country ||
-    detailsByCountry.find((country) => {
-      return country.name === decodeURIComponent(countryName);
+  useEffect(() => {
+    const found = countriesData.find((country) => {
+      return country.name.toLowerCase() === countryName.toLowerCase();
     });
 
-  console.log(findCountry);
+    setCountry(found || null);
+  });
+
+  // const { state } = useLocation();
+  // console.log(useLocation);
+
+  // const findCountry =
+  //   state.country ||
+  //   detailsByCountry.find((country) => {
+  //     return country.name === decodeURIComponent(countryName);
+  //   });
+
+  // console.log(findCountry);
 
   return (
     <div>
-      <EachCountry perCountry={findCountry} />
+      <EachCountry perCountry={country} />
     </div>
   );
 };

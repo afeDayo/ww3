@@ -5,9 +5,11 @@ import CountryDetail from "./pages/CountryDetail";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
 
+import countriesData from "./data.json";
+
 function App() {
   // ==================DECLARE INTIAL=============
-  const [allCountries, setAllCountries] = useState([]);
+  const [allCountries] = useState(countriesData);
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   // ============= FETCHING API OF ALL COUNTRIES ============
