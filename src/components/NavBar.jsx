@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoMoonOutline, IoMoon } from "react-icons/io5";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   const [darkMode, setDarkMode] = useState(() => {
     return JSON.parse(localStorage.getItem("dark-mode")) || false;
   });
