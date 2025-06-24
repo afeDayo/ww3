@@ -26,7 +26,7 @@ const NavBar = () => {
           navigate("/", { replace: true });
           window.location.reload();
         }}
-        className="decoration-none font-semibold sm:text-[22px] text-[14px cursor-pointer]"
+        className="decoration-none font-semibold sm:text-[22px] text-[14px] cursor-pointer"
       >
         Where in the world?
       </div>
