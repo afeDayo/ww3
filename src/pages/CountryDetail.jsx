@@ -7,30 +7,20 @@ import countriesData from "../data.json";
 const CountryDetail = () => {
   const { countryName } = useParams();
 
-  const [country, setCountry] = useState(null);
+  const { state } = useLocation();
+  console.log(useLocation);
 
-  useEffect(() => {
-    const found = countriesData.find((country) => {
-      return country.name.toLowerCase() === countryName.toLowerCase();
+  const findCountry =
+    state.country ||
+    countriesData.find((country) => {
+      return country.name === decodeURIComponent(countryName);
     });
 
-    setCountry(found || null);
-  });
-
-  // const { state } = useLocation();
-  // console.log(useLocation);
-
-  // const findCountry =
-  //   state.country ||
-  //   detailsByCountry.find((country) => {
-  //     return country.name === decodeURIComponent(countryName);
-  //   });
-
-  // console.log(findCountry);
+  console.log(findCountry);
 
   return (
     <div>
-      <EachCountry perCountry={country} />
+      <EachCountry perCountry={findCountry} />
     </div>
   );
 };

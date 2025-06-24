@@ -12,20 +12,6 @@ function App() {
   const [allCountries] = useState(countriesData);
   const [filteredCountries, setFilteredCountries] = useState([]);
 
-  // ============= FETCHING API OF ALL COUNTRIES ============
-  useEffect(() => {
-    const getData = async () => {
-      const fetchData = await fetch("/data.json");
-      const convertedData = await fetchData.json();
-
-      console.log(convertedData);
-
-      setAllCountries(convertedData);
-    };
-
-    getData();
-  }, []);
-
   // ================= FILTER BY SEARCH ====================
   const filterBySearch = (searched) => {
     const searchedCountry = allCountries.filter((country) => {
