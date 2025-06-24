@@ -21,12 +21,15 @@ const NavBar = () => {
 
   return (
     <div className="flex justify-between items-center sm:py-8 sm:px-20 px-4 py-6 shadow-md bg-elements custom-text-color">
-      <Link
-        to="/"
-        className="decoration-none font-semibold sm:text-[22px] text-[14px]"
+      <div
+        onClick={() => {
+          navigate("/", { replace: true });
+          window.location.reload();
+        }}
+        className="decoration-none font-semibold sm:text-[22px] text-[14px cursor-pointer]"
       >
         Where in the world?
-      </Link>
+      </div>
 
       <div
         onClick={() => {
