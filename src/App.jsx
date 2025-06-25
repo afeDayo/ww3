@@ -11,6 +11,7 @@ function App() {
   // ==================DECLARE INTIAL=============
   const [allCountries] = useState(countriesData);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // ================= FILTER BY SEARCH ====================
   const filterBySearch = (searched) => {
